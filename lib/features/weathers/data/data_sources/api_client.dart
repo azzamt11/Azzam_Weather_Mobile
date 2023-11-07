@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:azzam_weather_mobile/functions/StringFunctions.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/helpers/functions.dart';
 import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
-import 'package:azzam_weather_mobile/core/constants/Strings.dart';
+import 'package:azzam_weather_mobile/core/constants/constants.dart';
 import 'package:http/http.dart' as http;
 
 
