@@ -1,4 +1,4 @@
-import 'package:azzam_weather_mobile/constants/Strings.dart';
+import 'package:azzam_weather_mobile/core/constants/constants.dart';
 
 class StringFunctions {
 
