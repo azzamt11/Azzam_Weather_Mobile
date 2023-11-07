@@ -24,7 +24,7 @@ class ApiClient {
         var decodedResponse = json.decode(response.body);
         data.setData(decodedResponse);
       } else {
-        data.setError(StringFunctions().errorTranslator(statusCode));
+        data.setError(Functions().errorTranslator(statusCode));
       }
     } catch(e) {
       data.setNetworkError(e.toString());
