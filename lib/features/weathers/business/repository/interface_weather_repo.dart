@@ -15,7 +15,7 @@ class InterfaceWeatherRepository {
     DailyForecastWeather dailyForecastData= DailyForecastWeather();
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
-      currentData.setData(data.currentCondition);
+      currentData.setData(data.currentCondition, data.resolveAddress);
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
       currentData.setIsUpdated(true);
@@ -37,7 +37,7 @@ class InterfaceWeatherRepository {
     DailyForecastWeather dailyForecastData= DailyForecastWeather();
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
-      currentData.setData(data.currentCondition);
+      currentData.setData(data.currentCondition, data.resolveAddress);
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
     } else {
@@ -53,7 +53,7 @@ class InterfaceWeatherRepository {
     DailyForecastWeather dailyForecastData= DailyForecastWeather();
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
-      currentData.setData(data.currentCondition);
+      currentData.setData(data.currentCondition, data.resolveAddress);
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
     } else {

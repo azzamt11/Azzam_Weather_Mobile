@@ -33,12 +33,4 @@ class Geolocation {
     return position;
   }
 
-  Future<String> getAddressFromLatLng(Position position) async {
-    List<Placemark> placemarks= await placemarkFromCoordinates(position.latitude, position.longitude);
-    Placemark place = placemarks[0];
-    String? city =place.subAdministrativeArea;
-
-    return city.toString();
-  }
-
 }

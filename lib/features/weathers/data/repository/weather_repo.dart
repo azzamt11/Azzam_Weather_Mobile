@@ -3,7 +3,7 @@ import 'package:geolocator/geolocator.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/mock.dart';
-import '../../../weathers/presentation/helpers/geolocation.dart';
+import 'geolocation.dart';
 import '../../data/data_sources/remote/api_client.dart';
 import '../../data/data_sources/local/local_data.dart';
 import '../../data/models/weather.dart';

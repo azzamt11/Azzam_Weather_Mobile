@@ -10,12 +10,13 @@ class CurrentWeather {
   double? humidity;
   double? windSpeed;
   double? pressure;
+  String? address;
 
   bool isUpdated= false;
 
   String? message;
 
-  void setData(HourlyData data) {
+  void setData(HourlyData data, address) {
     temp= data.temp;
     conditions= data.conditions;
     visibility= data.visibility;
@@ -23,6 +24,7 @@ class CurrentWeather {
     humidity= data.humidity;
     windSpeed= data.windSpeed;
     pressure= data.pressure;
+    address= address;
 
     debugPrint("temp is set to $temp");
   }

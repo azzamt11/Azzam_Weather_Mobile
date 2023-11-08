@@ -1,10 +1,5 @@
-import 'dart:developer';
-
 import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/helpers/geolocation.dart';
 import 'package:flutter/material.dart';
-import 'package:geolocator/geolocator.dart';
-import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   final InterfaceWeatherData data;
@@ -15,12 +10,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
-  @override
-  void initState() {
-    locateMe();
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +46,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("")
+                  Text(widget.data.current.address??"Jakarta, Indonesia"),
                 ]
               )
             )
@@ -67,8 +56,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Future<void> locateMe() async{
-    
-    
-  }
 }

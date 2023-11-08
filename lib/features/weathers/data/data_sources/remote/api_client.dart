@@ -14,7 +14,8 @@ class ApiClient {
   Future<Weather> getWeatherData(Position position) async {
     Weather data= Weather();
     debugPrint("STEP 0 getWeatherData is in progress");
-    var response = await http.get(
+    try{
+      var response = await http.get(
         Uri.parse(Constants().getEndpoint(position.latitude, position.longitude)),
         headers: {
           "Access-Control-Allow-Origin": "*",
@@ -29,8 +30,6 @@ class ApiClient {
       } else {
         data.setError(Functions().errorTranslator(statusCode));
       }
-    try{
-      
     } catch(e) {
       data.setNetworkError(e.toString());
     }
