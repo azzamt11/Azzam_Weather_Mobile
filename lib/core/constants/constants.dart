@@ -1,12 +1,28 @@
+import 'package:geolocator/geolocator.dart';
+
 class Constants {
 
   String apiKey= "2RPC45GWNEZMY6SVM2HY6B6WA";
   String baseUrl= "https://weather.visualcrossing.com";
-  String query= "VisualCrossingWebServices/rest/services/timeline/jakarta?unitGroup=metric";
+  String query= "VisualCrossingWebServices/rest/services/timeline/";
   
-  String getEndpoint() {
-    return "$baseUrl/$query&key=$apiKey&contentType=json";
+  String getEndpoint(double lat, double long) {
+    return "$baseUrl/$query/$lat,$long?key=$apiKey&contentType=json";
   }
+
+  //position of Jakarta
+  Position defaultPosition= Position(
+    longitude: 106.8229, 
+    latitude: 6.1944,
+    timestamp: DateTime.now(), 
+    accuracy: 0, 
+    altitude: 0, 
+    altitudeAccuracy: 0, 
+    heading: 0, 
+    headingAccuracy: 0, 
+    speed: 0, 
+    speedAccuracy: 0
+  );
 
   Map<int, String> errorCodes= {
 

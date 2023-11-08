@@ -140,14 +140,18 @@ class _InitialPageState extends State<InitialPage> {
       data= await InterfaceWeatherRepository().getCurrentWeatherDataFromLocal();
     }
 
-    //=============================alternatively mocking the weather since there is lack of data retrieving process==============//
-    if(data.current.message!=null) {
-      debugPrint("Mocking the data");
+    //.............................................
+
+    //Just for mock. Since I cannot run this app in emulator, because it is too heavy for my computer,
+    //I can only run it in browser. And since browsers have some kind of security mechanism prohibiting
+    //my apiClient to retrieve the data from the Api, I have to mock the data in order to adjust the interface
+
+    if(data.current.message!= null) {
       data= await InterfaceWeatherRepository().getMockWeatherData();
     }
 
-    //============================================================================================================================//
-
+    //..............................................
+  
     Navigator.push(
       context, MaterialPageRoute(
         builder: (context)=> HomePage(data: data)

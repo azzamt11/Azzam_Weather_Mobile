@@ -1,6 +1,9 @@
-import 'package:azzam_weather_mobile/core/constants/mock.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
 
+import '../../../../core/constants/constants.dart';
+import '../../../../core/constants/mock.dart';
+import '../../../weathers/presentation/helpers/geolocation.dart';
 import '../../data/data_sources/remote/api_client.dart';
 import '../../data/data_sources/local/local_data.dart';
 import '../../data/models/weather.dart';
@@ -9,7 +12,8 @@ class WeatherRepository {
 
   Future<Weather> getWeatherData() async{
 
-    Weather data= await ApiClient().getWeatherData();
+    Position? position= await Geolocation().getCurrentPosition();
+    Weather data= await ApiClient().getWeatherData(position??Constants().defaultPosition);
     return data;
   }
 
