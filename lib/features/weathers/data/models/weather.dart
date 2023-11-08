@@ -43,7 +43,7 @@ class Weather {
       "longitude": longitude,
       "resolveAddress": resolveAddress,
       "timezone": timeZone,
-      "tzOffset": tzOffset,
+      "tzoffset": tzOffset,
       "description": description,
       "days": List<Map<String, dynamic>>.generate(days.length, (index) => days[index].toJSON())
     };
@@ -107,18 +107,18 @@ class DailyData {
       "datetime": datetime,
       "datetimeEpoch": datetimeEpoch,
       "temp": temp,
-      "tempMax": tempMax,
-      "tempMin": tempMin,
+      "tempmax": tempMax,
+      "tempmin": tempMin,
       "humidity": humidity,
       "dew": dew,
       "precip": precip,
-      "windSpeed": windSpeed,
-      "windDir": windDir,
+      "windspeed": windSpeed,
+      "winddir": windDir,
       "pressure": pressure,
       "visibility": visibility,
       "uvIndex": uvIndex,
       "conditions": conditions,
-      "precipType": precipType,
+      "preciptype": precipType,
       "description": description,
       "hours": List<Map<String, dynamic>>.generate(hours.length, (index) => hours[index].toJSON())
     };
@@ -171,11 +171,11 @@ class HourlyData {
       "dew": dew,
       "precip": precip,
       "precipType": precipType,
-      "windSpeed": windSpeed,
-      "windDir": windDir,
+      "windspeed": windSpeed,
+      "winddir": windDir,
       "pressure": pressure,
       "visibility": visibility,
-      "uvIndex": uvIndex,
+      "uvindex": uvIndex,
       "conditions": conditions
     };
   }

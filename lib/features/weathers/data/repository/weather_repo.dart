@@ -1,10 +1,10 @@
-import 'package:azzam_weather_mobile/data_sources/ApiClient.dart';
-import 'package:azzam_weather_mobile/features/weathers/data/data_sources/local/local_data.dart';
-import 'package:azzam_weather_mobile/features/weathers/data/models/Weather.dart';
+import '../../data/data_sources/remote/api_client.dart';
+import '../../data/data_sources/local/local_data.dart';
+import '../../data/models/weather.dart';
 
 class WeatherRepository {
 
-  Future<Weather> getRemoteWeatherData() async{
+  Future<Weather> getWeatherData() async{
 
     Weather data= await ApiClient().getWeatherData();
     return data;

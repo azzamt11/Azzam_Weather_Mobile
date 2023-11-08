@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:path_provider/path_provider.dart';
 
-import 'package:azzam_weather_mobile/pages/InitialPage.dart';
+import '../features/weathers/presentation/pages/initial_page.dart';
 
 
 void main() async{

@@ -1,8 +1,8 @@
 import 'dart:convert';
 
-import 'package:azzam_weather_mobile/features/weathers/presentation/helpers/functions.dart';
-import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
-import 'package:azzam_weather_mobile/core/constants/constants.dart';
+import '../../../presentation/helpers/functions.dart';
+import '../../../data/models/weather.dart';
+import '../../../../../core/constants/constants.dart';
 import 'package:http/http.dart' as http;
 
 
@@ -12,7 +12,7 @@ class ApiClient {
     Weather data= Weather();
     try{
       var response = await http.get(
-        Uri.parse(Strings().getEndpoint()),
+        Uri.parse(Constants().getEndpoint()),
         headers: {
           "Accept": "application/json",
           "Content-type": "application/json",

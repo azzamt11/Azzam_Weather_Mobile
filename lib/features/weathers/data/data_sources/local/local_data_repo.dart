@@ -1,9 +1,9 @@
 import 'dart:convert';
 
-import '../../../data/models/weather.dart';
+import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class LocalData {
+class LocalDataRepository {
 
   Future<Weather> getWeatherFromLocalData() async{
     Map<String, dynamic> rawData;
