@@ -1,4 +1,5 @@
 import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
+import 'package:flutter/material.dart';
 
 class CurrentWeather {
 
@@ -22,6 +23,8 @@ class CurrentWeather {
     humidity= data.humidity;
     windSpeed= data.windSpeed;
     pressure= data.pressure;
+
+    debugPrint("temp is set to $temp");
   }
 
   void setIsUpdated(bool value) {

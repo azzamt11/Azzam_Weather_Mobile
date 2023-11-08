@@ -1,3 +1,6 @@
+import 'package:azzam_weather_mobile/core/constants/mock.dart';
+import 'package:flutter/material.dart';
+
 import '../../data/data_sources/remote/api_client.dart';
 import '../../data/data_sources/local/local_data.dart';
 import '../../data/models/weather.dart';
@@ -18,5 +21,12 @@ class WeatherRepository {
 
   Future<void> saveWeatherData(Weather data) async{
     LocalData().saveWeatherToLocalData(data);
+  }
+
+  Future<Weather> getMockWeather() async{
+
+    Weather data= Mock().getData();
+    debugPrint("STEP A1: data= ${data.currentCondition.datetime}");
+    return data;
   }
 }

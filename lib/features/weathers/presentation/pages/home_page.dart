@@ -1,13 +1,19 @@
+import 'dart:developer';
+
+import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  final InterfaceWeatherData data;
+  const HomePage({super.key, required this.data});
 
   @override
   State<HomePage> createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
     var size= MediaQuery.of(context).size;
@@ -17,8 +23,17 @@ class _HomePageState extends State<HomePage> {
         height: size.height,
         width: size.width,
         color: Colors.white,
-        child: const Center(
-          child: Text("This is HomePage")
+        child: Column(
+          children: [
+            const Text("This is HomePage"),
+            ElevatedButton(
+              onPressed: () {
+                //nothing
+              },
+              child: const Text('Refresh Weather'),
+            ),
+            Text("datetime data: ${widget.data.current.temp}")
+          ],
         )
       ),
     );

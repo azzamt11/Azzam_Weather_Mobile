@@ -21,7 +21,8 @@ class Weather {
     tzOffset= data["tzoffset"];
     timeZone= data["timezone"];
     description= data["description"];
-    currentCondition= data["currentConditions"];
+
+    currentCondition.setData(data["currentConditions"]);
 
     for(int i=0; i< data["days"].length; i++) {
       DailyData day= DailyData();

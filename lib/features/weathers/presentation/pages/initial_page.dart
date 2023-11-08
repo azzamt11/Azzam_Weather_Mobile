@@ -1,5 +1,8 @@
 import 'dart:math';
 
+import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
+import 'package:azzam_weather_mobile/features/weathers/business/repository/interface_weather_repo.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 
@@ -124,6 +127,32 @@ class _InitialPageState extends State<InitialPage> {
     setState(() {
       defaultDuration= 500;
     });
+    InterfaceWeatherData data= await InterfaceWeatherRepository().getWeatherData();
+
+    int increment= 0;
+    while(!data.current.isUpdated && increment< 5) {
+      Future.delayed(const Duration(seconds: 3));
+      data= await InterfaceWeatherRepository().getWeatherData();
+      increment++;
+    }
+
+    if(!data.current.isUpdated) {
+      data= await InterfaceWeatherRepository().getCurrentWeatherDataFromLocal();
+    }
+
+    //=============================alternatively mocking the weather since there is lack of data retrieving process==============//
+    if(data.current.message!=null) {
+      debugPrint("Mocking the data");
+      data= await InterfaceWeatherRepository().getMockWeatherData();
+    }
+
+    //============================================================================================================================//
+
+    Navigator.push(
+      context, MaterialPageRoute(
+        builder: (context)=> HomePage(data: data)
+      )
+    );
     animateLogo("out");
   }
 }

@@ -1,4 +1,4 @@
-class Strings {
+class Constants {
 
   String apiKey= "2RPC45GWNEZMY6SVM2HY6B6WA";
   String baseUrl= "https://weather.visualcrossing.com";
