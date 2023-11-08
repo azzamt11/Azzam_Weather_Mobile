@@ -15,4 +15,8 @@ class WeatherRepository {
     Weather data= await LocalData().getWeatherFromLocalData();
     return data;
   }
+
+  Future<void> saveWeatherData(Weather data) async{
+    LocalData().saveWeatherToLocalData(data);
+  }
 }
