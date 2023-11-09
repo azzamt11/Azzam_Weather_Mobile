@@ -23,6 +23,21 @@ class Constants {
     return min(size.width*0.88, 250);
   }
 
+  List<String> months= [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+  ];
+
   //position of Jakarta
   Position defaultPosition= Position(
     longitude: 106.8229, 

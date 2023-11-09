@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:azzam_weather_mobile/core/constants/constants.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';

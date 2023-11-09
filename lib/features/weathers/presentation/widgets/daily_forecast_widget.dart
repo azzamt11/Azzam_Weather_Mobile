@@ -1,22 +1,23 @@
 import 'package:azzam_weather_mobile/core/constants/constants.dart';
 import 'package:azzam_weather_mobile/features/weathers/business/entities/current_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/hourly_forecast_weather.dart';
+import 'package:azzam_weather_mobile/features/weathers/business/entities/daily_forecast_weather.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HourlyForecastWidget extends StatelessWidget {
-  final HourlyForecastWeather data;
+class DailyForecastWidget extends StatelessWidget {
+  final DailyForecastWeather data;
   final CurrentWeather currentData;
-  const HourlyForecastWidget({super.key, required this.data, required this.currentData});
+  const DailyForecastWidget({super.key, required this.data, required this.currentData});
 
   @override
   Widget build(BuildContext context) {
     var size= MediaQuery.of(context).size;
     return Container(
-      height: 150,
+      height: 195+ 37,
       width: size.width,
       margin: Constants().getDefaultPadding(size),
+      padding: const EdgeInsets.only(top: 30),
       child: Column(
         children: [
           header(size),
@@ -27,16 +28,14 @@ class HourlyForecastWidget extends StatelessWidget {
   }
 
   Widget header(var size) {
-    DateTime now= DateTime.now();
     return SizedBox(
-      height: 35,
+      height: 37,
       width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          TextWidget(text: "Today ${now.day}/${now.month}/${now.year}", type: 8),
-          TextWidget(text: "${currentData.tempMin}°C / ${currentData.tempMax}°C", type: 8),
+          TextWidget(text: "Daily Forecast up to ${data.dailyData.length-1} days", type: 8),
         ],
       )
 
@@ -45,66 +44,66 @@ class HourlyForecastWidget extends StatelessWidget {
   
   Widget slider(var size) {
     return SizedBox(
-      height: 115,
+      height: 165,
       width: size.width,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
         child: Row(
-          children: getHourlyList(),
+          children: getDailyList(),
         )
       )
     );
   }
 
-  List<Widget> getHourlyList() {
-    List<Widget> hourlyList= [];
-    for(int i=0; i< data.hourlyData.length; i++) {
-      hourlyList.add(
+  List<Widget> getDailyList() {
+    List<Widget> dailyList= [];
+    for(int i=0; i< data.dailyData.length; i++) {
+      List<String> datetime= data.dailyData[i].datetime.toString().split("-");
+      dailyList.add(
         Container(
-          height: 110,
+          height: 165,
           width: 60,
+          decoration: BoxDecoration(
+            border: Border(
+              left: i!=0
+              ? const BorderSide(width: 1, color: Color.fromRGBO(200, 200, 200, 0.6)) 
+              : const BorderSide(width: 0, color: Colors.transparent),
+            )
+          ),
           padding: const EdgeInsets.only(top: 15),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              TextWidget(text: data.hourlyData[i].datetime.toString().split(":")[0], type: 9),
+              TextWidget(
+                text: "${getMonth(int.parse(datetime[1]))} ${datetime[2]}th", 
+                type: 10
+              ),
               Container(
                 height: 20,
                 width: 23,
-                margin: const EdgeInsets.only(top: 10, bottom: 10),
+                margin: const EdgeInsets.only(top: 10, bottom: 20),
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(getImageString(data.hourlyData[i].conditions))
+                    image: AssetImage(getImageString(data.dailyData[i].conditions))
                   )
                 ),
               ),
-              Text(
-                data.hourlyData[i].conditions,
-                style: GoogleFonts.dosis(
-                  textStyle: const TextStyle(
-                    fontSize: 11,
-                    color: Colors.grey,
-                    decorationThickness: 1.2,
-                    fontWeight: FontWeight.bold,
-                    height: 1,
-                  ),
-                ),
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
-              ),
+              const TextWidget(text: "Max.", type: 11),
+              TextWidget(text: "${data.dailyData[i].tempMax}°C", type: 11),
               const SizedBox(height: 7),
-              TextWidget(text: "${data.hourlyData[i].temp}°C", type: 9)
+              const TextWidget(text: "Min.", type: 12),
+              TextWidget(text: "${data.dailyData[i].tempMin}°C", type: 12)
             ],
           )
         )
       );
-      if(i< data.hourlyData.length-1) {
-        hourlyList.add(const SizedBox(width: 5));
-      }
     }
-    return hourlyList;
+    return dailyList;
+  }
+
+  String getMonth(int index) {
+    return Constants().months[index-1];
   }
 
   String getImageString(String condition) {

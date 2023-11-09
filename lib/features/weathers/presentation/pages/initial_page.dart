@@ -73,6 +73,7 @@ class _InitialPageState extends State<InitialPage> {
               child: Container(
                 height: 180+ (defaultSize- 180)*relativeSize,
                 width: 180+ (defaultSize- 180)*relativeSize,
+                margin: const EdgeInsets.only(bottom: 35),
                 decoration: const BoxDecoration(
                     image: DecorationImage(
                         image: AssetImage("images/weather_logo_transparent.png")

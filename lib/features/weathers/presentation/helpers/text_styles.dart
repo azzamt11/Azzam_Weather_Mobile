@@ -46,6 +46,17 @@ class TextStyles {
         color= Colors.grey;
         fontWeight= FontWeight.bold;
       }
+      case 10: {
+        fontSize= 12.7;
+      }
+      case 11: {
+        fontSize= 11.8;
+        color= Colors.red;
+      }
+      case 12: {
+        fontSize= 11.8;
+        color= Colors.blue;
+      }
     }
     return GoogleFonts.dosis(
       textStyle: TextStyle(
