@@ -1,4 +1,8 @@
+import 'dart:io';
+
+import 'package:azzam_weather_mobile/core/constants/constants.dart';
 import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/about_button.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/header_widget.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/main_widget.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/panorama.dart';
@@ -17,6 +21,7 @@ class _HomePageState extends State<HomePage> {
   final ScrollController controller = ScrollController();
 
   double barPosition= 0;
+  int drawerIncrement= 0;
 
   @override
   void initState() {
@@ -46,21 +51,26 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     var size= MediaQuery.of(context).size;
-    return Scaffold(
-      resizeToAvoidBottomInset: false,
-      body: Container(
-        height: size.height,
-        width: size.width,
-        color: Colors.white,
-        child: Stack(
-          children: [
-            Panorama(isDay: DateTime.now().hour< 18, data: widget.data),
-            HeaderWidget(address: widget.data.current.address??"Jakarta, Indonesia"),
-            MainWidget(controller: controller, data: widget.data),
-            appBar(size)
-          ],
-        )
-      ),
+    return WillPopScope(
+      onWillPop: () async{
+        exit(1);
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: false,
+        body: Container(
+          height: size.height,
+          width: size.width,
+          color: Colors.white,
+          child: Stack(
+            children: [
+              Panorama(isDay: DateTime.now().hour< 18, data: widget.data),
+              HeaderWidget(address: widget.data.current.address??"Jakarta, Indonesia"),
+              MainWidget(controller: controller, data: widget.data),
+              appBar(size)
+            ],
+          )
+        ),
+      )
     );
   }
 
@@ -74,7 +84,7 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             height: 50,
             width: size.width,
-            padding: const EdgeInsets.only(top: 10, left: 20),
+            padding: Constants().getDefaultPadding(size),
             decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
@@ -92,20 +102,7 @@ class _HomePageState extends State<HomePage> {
                     type: 0
                   ),
                 ),
-                InkWell(
-                  onTap: () {
-                    
-                  },
-                  splashColor: Colors.black12,
-                  child: Container(
-                    height: 30,
-                    width: 30,
-                    color: Colors.transparent,
-                    child: const Center(
-                      child: Icon(Icons.menu, color: Colors.black, size: 26)
-                    )
-                  )
-                )
+                const AboutButton()
               ]
             )
           )

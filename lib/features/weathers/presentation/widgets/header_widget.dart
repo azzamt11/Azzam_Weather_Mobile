@@ -1,4 +1,5 @@
 import 'package:azzam_weather_mobile/core/constants/constants.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/about_button.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
@@ -22,10 +23,10 @@ class HeaderWidget extends StatelessWidget {
             SizedBox(
               width: 140,
               child: TextWidget(
-                text: address??"Bali", 
+                text: address??"Jakarta", 
                 type: DateTime.now().hour< 18? 0 : 2
               ),
-            )
+            ),
           ]
         )
       )
