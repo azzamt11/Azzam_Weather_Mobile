@@ -27,10 +27,12 @@ class WeatherRepository {
     LocalData().saveWeatherToLocalData(data);
   }
 
+  /*
   Future<Weather> getMockWeather() async{
 
     Weather data= Mock().getData();
     debugPrint("STEP B4: data.resolvedAddress= ${data.resolvedAddress}");
     return data;
   }
+  */
 }

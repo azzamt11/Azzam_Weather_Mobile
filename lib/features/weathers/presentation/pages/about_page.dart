@@ -32,7 +32,7 @@ class _AboutPageState extends State<AboutPage> {
                 width: size.width,
                 margin: Constants().getDefaultPadding(size),
                 child: const TextWidget(
-                  text: "Features of applications: \n 1. Current Weather (with offline mode taking data from the previous forecast). \n 2. Daily and Hourly forecast weather. \n 3. The sunrise and sunset display (at day) and moonphase display (at night).", 
+                  text: "Features of applications: \n 1. Current Weather (with offline mode taking data from the previous forecast), \n 2. Daily and Hourly forecast weather, \n 3. The sunrise and sunset display (at day) and moonphase display (at night), and \n 4. Geolocation feature ensures that the weather forecasting is precisely at your location.", 
                   type: 14
                 )
               ),
