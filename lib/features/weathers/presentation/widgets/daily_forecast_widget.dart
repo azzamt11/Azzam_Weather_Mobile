@@ -3,7 +3,6 @@ import 'package:azzam_weather_mobile/features/weathers/business/entities/current
 import 'package:azzam_weather_mobile/features/weathers/business/entities/daily_forecast_weather.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DailyForecastWidget extends StatelessWidget {
   final DailyForecastWeather data;

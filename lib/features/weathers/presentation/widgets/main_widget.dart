@@ -2,6 +2,7 @@ import 'package:azzam_weather_mobile/features/weathers/business/entities/interfa
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/current_weather_widget.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/daily_forecast_widget.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/hourly_forecast_widget.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/weather_features.dart';
 import 'package:flutter/material.dart';
 
 class MainWidget extends StatefulWidget {
@@ -30,7 +31,6 @@ class _MainWidgetState extends State<MainWidget> {
                 height: 150,
               ),
               Container(
-                height: 1000,
                 width: size.width,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
@@ -51,7 +51,8 @@ class _MainWidgetState extends State<MainWidget> {
                   children: [
                     CurrentWeatherWidget(data: widget.data.current),
                     HourlyForecastWidget(data: widget.data.hourly, currentData: widget.data.current),
-                    DailyForecastWidget(data: widget.data.daily, currentData: widget.data.current)
+                    DailyForecastWidget(data: widget.data.daily, currentData: widget.data.current),
+                    WeatherFeatures(data: widget.data.current)
                   ],
                 )
               ),

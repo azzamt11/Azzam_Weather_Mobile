@@ -5,6 +5,7 @@ class CurrentWeather {
   double? temp;
   double? tempMin;
   double? tempMax;
+  double? feelslike;
   String? conditions;
   double? visibility;
   double? uvIndex;
@@ -31,6 +32,7 @@ class CurrentWeather {
     pressure= data.pressure;
     tempMin= dailyData.tempMin;
     tempMax= dailyData.tempMax;
+    feelslike= data.feelslike;
     this.address= address;
     sunset= dailyData.sunset;
     sunrise= dailyData.sunrise;

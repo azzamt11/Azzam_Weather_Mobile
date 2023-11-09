@@ -91,6 +91,20 @@ class _HomePageState extends State<HomePage> {
                     text: widget.data.current.address??"Jakarta", 
                     type: 0
                   ),
+                ),
+                InkWell(
+                  onTap: () {
+                    
+                  },
+                  splashColor: Colors.black12,
+                  child: Container(
+                    height: 30,
+                    width: 30,
+                    color: Colors.transparent,
+                    child: const Center(
+                      child: Icon(Icons.menu, color: Colors.black, size: 26)
+                    )
+                  )
                 )
               ]
             )
