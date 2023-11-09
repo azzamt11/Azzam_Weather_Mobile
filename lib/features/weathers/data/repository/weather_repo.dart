@@ -30,7 +30,7 @@ class WeatherRepository {
   Future<Weather> getMockWeather() async{
 
     Weather data= Mock().getData();
-    debugPrint("STEP A1: data= ${data.currentCondition.datetime}");
+    debugPrint("STEP B4: data.resolvedAddress= ${data.resolvedAddress}");
     return data;
   }
 }

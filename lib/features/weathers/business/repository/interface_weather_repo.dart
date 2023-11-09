@@ -3,6 +3,7 @@ import 'package:azzam_weather_mobile/features/weathers/business/entities/hourly_
 import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
 import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
 import 'package:azzam_weather_mobile/features/weathers/data/repository/weather_repo.dart';
+import 'package:flutter/material.dart';
 
 import '../../business/entities/current_weather.dart';
 
@@ -15,7 +16,13 @@ class InterfaceWeatherRepository {
     DailyForecastWeather dailyForecastData= DailyForecastWeather();
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
-      currentData.setData(data.currentCondition, data.resolveAddress);
+      currentData.setData(
+        data.currentCondition, 
+        data.resolvedAddress,
+        data.days[0].sunset,
+        data.days[0].sunrise,
+        data.days[0].moonphase
+      );
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
       currentData.setIsUpdated(true);
@@ -37,7 +44,13 @@ class InterfaceWeatherRepository {
     DailyForecastWeather dailyForecastData= DailyForecastWeather();
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
-      currentData.setData(data.currentCondition, data.resolveAddress);
+      currentData.setData(
+        data.days[0].hours[DateTime.now().hour], 
+        data.resolvedAddress,
+        data.days[0].sunset,
+        data.days[0].sunrise,
+        data.days[0].moonphase
+      );
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
     } else {
@@ -53,7 +66,14 @@ class InterfaceWeatherRepository {
     DailyForecastWeather dailyForecastData= DailyForecastWeather();
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
-      currentData.setData(data.currentCondition, data.resolveAddress);
+      debugPrint("STEP B5: data.address= ${data.resolvedAddress}");
+      currentData.setData(
+        data.days[0].hours[DateTime.now().hour], 
+        data.resolvedAddress,
+        data.days[0].sunset,
+        data.days[0].sunrise,
+        data.days[0].moonphase
+      );
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
     } else {

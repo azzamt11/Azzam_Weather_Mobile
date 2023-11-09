@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
 import 'package:azzam_weather_mobile/features/weathers/business/repository/interface_weather_repo.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/pages/home_page.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 
@@ -47,57 +48,60 @@ class _InitialPageState extends State<InitialPage> {
           tileMode: TileMode.repeated,
         ),
       ),
-      child: Center(
-        child: logoWidget(size)
+      child: Stack(
+        children: [
+          Center(
+            child: logoWidget(size)
+          ),
+          appName()
+        ],
       )
     );
   }
 
   Widget logoWidget(var size) {
     double defaultSize= min(size.width, size.height);
-    return Container(
-      height: defaultSize,
-      width: defaultSize,
-      margin: const EdgeInsets.only(bottom: 50),
-      child: Stack(
-        children: [
-          TweenAnimationBuilder<double>(
-            tween: Tween<double>(begin: 0, end: targetRelativeSize),
-            duration: Duration(milliseconds: defaultDuration),
-            builder:(BuildContext context, double relativeSize, Widget? child) {
-              return Align(
-                alignment: Alignment.center,
-                child: Container(
-                  height: 180+ (defaultSize- 180)*relativeSize,
-                  width: 180+ (defaultSize- 180)*relativeSize,
-                  decoration: const BoxDecoration(
-                      image: DecorationImage(
-                          image: AssetImage("images/weather_logo_transparent.png")
-                      )
-                  ),
+    return TweenAnimationBuilder<double>(
+      tween: Tween<double>(begin: 0, end: targetRelativeSize),
+      duration: Duration(milliseconds: defaultDuration),
+      builder:(BuildContext context, double relativeSize, Widget? child) {
+        return TweenAnimationBuilder<double>(
+          tween: Tween<double>(begin: 0, end: targetOpacity),
+          duration: Duration(milliseconds: defaultDuration),
+          builder:(BuildContext context, double opacity, Widget? child) {
+            return Opacity(
+              opacity: opacity,
+              child: Container(
+                height: 180+ (defaultSize- 180)*relativeSize,
+                width: 180+ (defaultSize- 180)*relativeSize,
+                decoration: const BoxDecoration(
+                    image: DecorationImage(
+                        image: AssetImage("images/weather_logo_transparent.png")
+                    )
                 ),
-              );
-            },
-          ),
-          TweenAnimationBuilder<double>(
-              tween: Tween<double>(begin: 0, end: targetOpacity),
-              duration: Duration(milliseconds: defaultDuration- 50),
-              builder:(BuildContext context, double opacity, Widget? child) {
-                return Container(
-                    height: defaultSize,
-                    width: defaultSize,
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                        colors: [Color.fromRGBO(31, 98, 239, 1-opacity), Color.fromRGBO(25, 212, 253, 1-opacity)],
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        stops: const [0.4, 0.7],
-                      ),
-                    ),
-                );
-              },
-          )
-        ],
+              )
+            );
+          },
+        );
+      },
+    );
+  }
+
+  Widget appName() {
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: TweenAnimationBuilder<double>(
+          tween: Tween<double>(begin: 0, end: targetOpacity),
+          duration: Duration(milliseconds: defaultDuration),
+          builder:(BuildContext context, double opacity, Widget? child) {
+            return Opacity(
+              opacity: opacity,
+              child: const TextWidget(text: "Azzam Weather Mobile (v.0.0.1)", type: 1),
+            );
+          },
+        )
       )
     );
   }
@@ -148,15 +152,19 @@ class _InitialPageState extends State<InitialPage> {
 
     if(data.current.message!= null) {
       data= await InterfaceWeatherRepository().getMockWeatherData();
+      debugPrint("STEP B3: mock is triggered, we have data.current.address= ${data.current.address}");
     }
 
     //..............................................
   
+    animateLogo("out");
+    Future.delayed(const Duration(seconds: 1));
+
+    // ignore: use_build_context_synchronously
     Navigator.push(
       context, MaterialPageRoute(
         builder: (context)=> HomePage(data: data)
       )
     );
-    animateLogo("out");
   }
 }

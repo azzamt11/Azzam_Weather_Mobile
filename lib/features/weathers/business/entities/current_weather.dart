@@ -11,12 +11,16 @@ class CurrentWeather {
   double? windSpeed;
   double? pressure;
   String? address;
+  double? moonphase;
+  double? sunrise;
+  double? sunset;
 
   bool isUpdated= false;
 
   String? message;
 
-  void setData(HourlyData data, address) {
+  void setData(HourlyData data, address, sunset, sunrise, moonphase) {
+    debugPrint("STEP B6: address= $address");
     temp= data.temp;
     conditions= data.conditions;
     visibility= data.visibility;
@@ -24,7 +28,11 @@ class CurrentWeather {
     humidity= data.humidity;
     windSpeed= data.windSpeed;
     pressure= data.pressure;
-    address= address;
+    this.address= address;
+    this.sunset= sunset;
+    this.sunrise= sunrise;
+    this.moonphase= moonphase;
+
 
     debugPrint("temp is set to $temp");
   }

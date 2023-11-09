@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
 class Constants {
@@ -9,6 +10,8 @@ class Constants {
   String getEndpoint(double lat, double long) {
     return "$baseUrl/$query/$lat,$long?key=$apiKey&contentType=json";
   }
+
+  Color mainColor= const Color.fromRGBO(0, 140, 252, 1);
 
   //position of Jakarta
   Position defaultPosition= Position(

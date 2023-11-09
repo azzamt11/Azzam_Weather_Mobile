@@ -3,7 +3,7 @@ class Weather {
   int? queryCost;
   double? latitude;
   double? longitude;
-  String? resolveAddress;
+  String? resolvedAddress;
   String? timeZone;
   double? tzOffset;
   String? description;
@@ -17,7 +17,7 @@ class Weather {
     queryCost= data["queryCost"];
     latitude= data["latitude"];
     longitude= data["longitude"];
-    resolveAddress= data["resolveAddress"];
+    resolvedAddress= data["resolvedAddress"];
     tzOffset= data["tzoffset"];
     timeZone= data["timezone"];
     description= data["description"];
@@ -44,7 +44,7 @@ class Weather {
       "queryCost": queryCost,
       "latitude": latitude,
       "longitude": longitude,
-      "resolveAddress": resolveAddress,
+      "resolvedAddress": resolvedAddress,
       "timezone": timeZone,
       "tzoffset": tzOffset,
       "description": description,
@@ -73,6 +73,7 @@ class DailyData {
   double? uvIndex;
   String? conditions;
   String? sunrise;
+  double? moonphase;
   int? sunriseEpoch;
   String? sunset;
   int? subsetEpoch;
@@ -96,6 +97,7 @@ class DailyData {
     uvIndex= data["uvindex"];
     conditions= data["conditions"];
     precipType= data["preciptype"];
+    moonphase= data["moonphase"];
     description= data["description"];
 
     for(int i=0; i< data["hours"].length; i++) {
