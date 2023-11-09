@@ -1,4 +1,6 @@
 import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/current_weather_widget.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/hourly_forecast_widget.dart';
 import 'package:flutter/material.dart';
 
 class MainWidget extends StatefulWidget {
@@ -44,6 +46,12 @@ class _MainWidgetState extends State<MainWidget> {
                     end: Alignment.bottomCenter,
                   ),
                 ),
+                child: Column(
+                  children: [
+                    CurrentWeatherWidget(data: widget.data.current),
+                    HourlyForecastWidget(data: widget.data.hourly, currentData: widget.data.current),
+                  ],
+                )
               ),
             ],
           )

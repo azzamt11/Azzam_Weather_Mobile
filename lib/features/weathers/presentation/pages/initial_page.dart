@@ -97,7 +97,15 @@ class _InitialPageState extends State<InitialPage> {
           builder:(BuildContext context, double opacity, Widget? child) {
             return Opacity(
               opacity: opacity,
-              child: const TextWidget(text: "Azzam Weather Mobile (v.0.0.1)", type: 1),
+              child: const SizedBox(
+                height: 50,
+                child: Column(
+                  children: [
+                    TextWidget(text: "Azzam Weather Mobile", type: 1),
+                    TextWidget(text: "Version 1.0.0", type: 1)
+                  ],
+                )
+              ),
             );
           },
         )

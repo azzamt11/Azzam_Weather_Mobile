@@ -1,6 +1,7 @@
 class Weather {
 
   int? queryCost;
+  String? datetime;
   double? latitude;
   double? longitude;
   String? resolvedAddress;

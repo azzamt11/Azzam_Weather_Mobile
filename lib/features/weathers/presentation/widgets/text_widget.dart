@@ -12,6 +12,16 @@ class TextWidget extends StatelessWidget {
       text, 
       style: TextStyles().getStyle(type),
       overflow: TextOverflow.ellipsis,
+      textAlign: getTextAlign(type),
+      maxLines: 2,
     );
+  }
+
+  TextAlign getTextAlign(int type) {
+    switch(type) {
+      case 7: return TextAlign.right;
+      case 9: return TextAlign.center;
+      default: return TextAlign.left;
+    }
   }
 }

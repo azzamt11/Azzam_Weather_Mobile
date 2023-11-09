@@ -17,11 +17,9 @@ class InterfaceWeatherRepository {
     HourlyForecastWeather hourlyForecastData= HourlyForecastWeather();
     if(data.error==null && data.netError==null) {
       currentData.setData(
-        data.currentCondition, 
+        data.currentCondition,
+        data.days[0], 
         data.resolvedAddress,
-        data.days[0].sunset,
-        data.days[0].sunrise,
-        data.days[0].moonphase
       );
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
@@ -46,10 +44,8 @@ class InterfaceWeatherRepository {
     if(data.error==null && data.netError==null) {
       currentData.setData(
         data.days[0].hours[DateTime.now().hour], 
+        data.days[0], 
         data.resolvedAddress,
-        data.days[0].sunset,
-        data.days[0].sunrise,
-        data.days[0].moonphase
       );
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);
@@ -68,11 +64,9 @@ class InterfaceWeatherRepository {
     if(data.error==null && data.netError==null) {
       debugPrint("STEP B5: data.address= ${data.resolvedAddress}");
       currentData.setData(
-        data.days[0].hours[DateTime.now().hour], 
+        data.currentCondition,
+        data.days[0], 
         data.resolvedAddress,
-        data.days[0].sunset,
-        data.days[0].sunrise,
-        data.days[0].moonphase
       );
       dailyForecastData.setData(data);
       hourlyForecastData.setData(data);

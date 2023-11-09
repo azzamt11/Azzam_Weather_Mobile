@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
             decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
-                bottom: BorderSide(width: 1.0, color: Colors.grey),
+                bottom: BorderSide(width: 1.0, color: Color.fromRGBO(200, 200, 200, 0.8)),
               ),
             ),
             child:  Row(

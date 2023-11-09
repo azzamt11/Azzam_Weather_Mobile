@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 
@@ -12,6 +14,14 @@ class Constants {
   }
 
   Color mainColor= const Color.fromRGBO(0, 140, 252, 1);
+
+  EdgeInsets getDefaultPadding(Size size) {
+    return EdgeInsets.symmetric(horizontal: max(size.width*0.06, size.width/2- 250));
+  }
+
+  double getDefaultWidth(Size size) {
+    return min(size.width*0.88, 250);
+  }
 
   //position of Jakarta
   Position defaultPosition= Position(

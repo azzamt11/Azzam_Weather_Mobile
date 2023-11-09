@@ -6,36 +6,54 @@ class TextStyles {
 
   TextStyle getStyle(int type) {
     Color color= Colors.black;
-    double fontSize= 14;
+    double fontSize= 16;
     FontWeight fontWeight= FontWeight.normal;
     TextDecoration? textDecoration;
     switch(type) {
       case 1: {
         color= Colors.white;
-        fontSize= 13.5;
+        fontSize= 14;
       }
       case 2: {
         color= Colors.white;
-        fontSize= 14;
       }
       case 3: {
         color= const Color.fromRGBO(255, 255, 255, 0.3);
-        fontSize= 11;
+        fontSize= 13.5;
         fontWeight= FontWeight.normal;
       }
       case 4: {
         color= const Color.fromRGBO(255, 255, 255, 0.6);
-        fontSize= 11;
+        fontSize= 13.5;
         fontWeight= FontWeight.normal;
       }
+      case 5: {
+        fontSize= 75;
+      }
+      case 6: {
+        fontSize= 70;
+        color= Colors.grey;
+      }
+      case 7: {
+        fontSize= 20;
+      }
+      case 8: {
+        fontSize= 12.5;
+        fontWeight= FontWeight.bold;
+      }
+      case 9: {
+        fontSize= 11.3;
+        color= Colors.grey;
+        fontWeight= FontWeight.bold;
+      }
     }
-    return GoogleFonts.poppins(
+    return GoogleFonts.dosis(
       textStyle: TextStyle(
         fontSize: fontSize,
         color: color,
         fontWeight: fontWeight,
         decoration: textDecoration,
-        decorationThickness: 1.7
+        decorationThickness: 1.2,
       )
     );
   }

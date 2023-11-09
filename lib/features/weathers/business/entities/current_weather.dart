@@ -2,8 +2,9 @@ import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart'
 import 'package:flutter/material.dart';
 
 class CurrentWeather {
-
   double? temp;
+  double? tempMin;
+  double? tempMax;
   String? conditions;
   double? visibility;
   double? uvIndex;
@@ -19,7 +20,7 @@ class CurrentWeather {
 
   String? message;
 
-  void setData(HourlyData data, address, sunset, sunrise, moonphase) {
+  void setData(HourlyData data, DailyData dailyData, address) {
     debugPrint("STEP B6: address= $address");
     temp= data.temp;
     conditions= data.conditions;
@@ -28,10 +29,12 @@ class CurrentWeather {
     humidity= data.humidity;
     windSpeed= data.windSpeed;
     pressure= data.pressure;
+    tempMin= dailyData.tempMin;
+    tempMax= dailyData.tempMax;
     this.address= address;
-    this.sunset= sunset;
-    this.sunrise= sunrise;
-    this.moonphase= moonphase;
+    sunset= dailyData.sunset;
+    sunrise= dailyData.sunrise;
+    moonphase= dailyData.moonphase;
 
 
     debugPrint("temp is set to $temp");

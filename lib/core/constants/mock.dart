@@ -10905,7 +10905,7 @@ class Mock {
         "solarradiation": 1001,
         "solarenergy": 3.6,
         "uvindex": 10,
-        "conditions": "Partially cloudy",
+        "conditions": "Partially cloudy, Rainy Cloudy",
         "icon": "partly-cloudy-day",
         "stations": [
             "WIII",
