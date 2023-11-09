@@ -56,6 +56,8 @@ class InterfaceWeatherRepository {
   }
 
   //just in case my application error, for at least there is something to show, we generate the mock data for weather
+
+  /*
   Future<InterfaceWeatherData> getMockWeatherData() async{
     Weather data= await WeatherRepository().getMockWeather();
     CurrentWeather currentData= CurrentWeather();
@@ -75,5 +77,6 @@ class InterfaceWeatherRepository {
     }
     return InterfaceWeatherData(currentData, dailyForecastData, hourlyForecastData);
   }
+  */
 
 }

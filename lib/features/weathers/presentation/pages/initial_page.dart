@@ -158,10 +158,12 @@ class _InitialPageState extends State<InitialPage> {
     //I can only run it in browser. And since browsers have some kind of security mechanism prohibiting
     //my apiClient to retrieve the data from the Api, I have to mock the data in order to adjust the interface
 
+    /*
     if(data.current.message!= null) {
       data= await InterfaceWeatherRepository().getMockWeatherData();
       debugPrint("STEP B3: mock is triggered, we have data.current.address= ${data.current.address}");
     }
+    */
 
     //..............................................
   
