@@ -1,4 +1,4 @@
-import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
+import '../../../weathers/data/models/weather.dart';
 
 class DailyForecastWeather {
 

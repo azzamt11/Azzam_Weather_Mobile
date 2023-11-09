@@ -1,10 +1,11 @@
 import 'dart:math';
 
-import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/repository/interface_weather_repo.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/pages/home_page.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../weathers/business/entities/interface_weather_data.dart';
+import '../../../weathers/business/repository/interface_weather_repo.dart';
+import '../../../weathers/presentation/pages/home_page.dart';
+import '../../../weathers/presentation/widgets/text_widget.dart';
 
 
 class InitialPage extends StatefulWidget {
@@ -171,9 +172,12 @@ class _InitialPageState extends State<InitialPage> {
     Future.delayed(const Duration(seconds: 1));
 
     // ignore: use_build_context_synchronously
+    double topPadding= MediaQuery.of(context).padding.top;
+
+    // ignore: use_build_context_synchronously
     Navigator.push(
       context, MaterialPageRoute(
-        builder: (context)=> HomePage(data: data)
+        builder: (context)=> HomePage(data: data, topPadding: topPadding)
       )
     );
   }

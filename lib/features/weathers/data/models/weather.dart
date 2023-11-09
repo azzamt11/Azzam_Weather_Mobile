@@ -32,6 +32,10 @@ class Weather {
     }
   }
 
+  void setAddress(String address) {
+    resolvedAddress= address;
+  }
+
   void setError(String error) {
     this.error= error;
   }

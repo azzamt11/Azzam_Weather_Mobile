@@ -1,8 +1,10 @@
-import 'package:azzam_weather_mobile/core/constants/constants.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/current_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/daily_forecast_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/constants/constants.dart';
+import '../../../weathers/business/entities/current_weather.dart';
+import '../../../weathers/business/entities/daily_forecast_weather.dart';
+import '../../../weathers/presentation/helpers/functions.dart';
+import '../../../weathers/presentation/widgets/text_widget.dart';
 
 class DailyForecastWidget extends StatelessWidget {
   final DailyForecastWeather data;
@@ -89,10 +91,16 @@ class DailyForecastWidget extends StatelessWidget {
                 ),
               ),
               const TextWidget(text: "Max.", type: 11),
-              TextWidget(text: "${data.dailyData[i].tempMax}°C", type: 11),
+              TextWidget(
+                text: "${Functions().fahrenheitToCelcius(data.dailyData[i].tempMax??0)}°C", 
+                type: 11
+              ),
               const SizedBox(height: 7),
               const TextWidget(text: "Min.", type: 12),
-              TextWidget(text: "${data.dailyData[i].tempMin}°C", type: 12)
+              TextWidget(
+                text: "${Functions().fahrenheitToCelcius(data.dailyData[i].tempMin??0)}°C", 
+                type: 12
+              )
             ],
           )
         )
@@ -110,7 +118,7 @@ class DailyForecastWidget extends StatelessWidget {
       return "images/rainy.png";
     } else if(condition.toLowerCase().contains("cloud")) {
       return "images/cloudy.png";
-    } else if(condition.toLowerCase().contains("ovarcast")) {
+    } else if(condition.toLowerCase().contains("overcast")) {
       return "images/overcast.png";
     } else if(condition.toLowerCase().contains("storm")) {
       return "images/thunderstorm.png";

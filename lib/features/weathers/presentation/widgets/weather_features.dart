@@ -1,9 +1,9 @@
 import 'package:url_launcher/url_launcher.dart';
-
-import 'package:azzam_weather_mobile/core/constants/constants.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/current_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/constants/constants.dart';
+import '../../../weathers/business/entities/current_weather.dart';
+import '../../../weathers/presentation/widgets/text_widget.dart';
 
 
 class WeatherFeatures extends StatefulWidget {

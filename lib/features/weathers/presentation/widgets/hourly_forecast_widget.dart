@@ -1,9 +1,11 @@
-import 'package:azzam_weather_mobile/core/constants/constants.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/current_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/hourly_forecast_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import '../../../../core/constants/constants.dart';
+import '../../business/entities/current_weather.dart';
+import '../../business/entities/hourly_forecast_weather.dart';
+import '../../../weathers/presentation/widgets/text_widget.dart';
+import '../../../weathers/presentation/helpers/functions.dart';
 
 class HourlyForecastWidget extends StatelessWidget {
   final HourlyForecastWeather data;
@@ -36,7 +38,10 @@ class HourlyForecastWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           TextWidget(text: "Today ${now.day}/${now.month}/${now.year}", type: 8),
-          TextWidget(text: "${currentData.tempMin}°C / ${currentData.tempMax}°C", type: 8),
+          TextWidget(
+            text: "${Functions().fahrenheitToCelcius(currentData.tempMin??0)}°C / ${Functions().fahrenheitToCelcius(currentData.tempMax??0)}°C", 
+            type: 8
+          ),
         ],
       )
 
@@ -95,7 +100,10 @@ class HourlyForecastWidget extends StatelessWidget {
                 maxLines: 1,
               ),
               const SizedBox(height: 7),
-              TextWidget(text: "${data.hourlyData[i].temp}°C", type: 9)
+              TextWidget(
+                text: "${Functions().fahrenheitToCelcius(data.hourlyData[i].temp??0)}°C", 
+                type: 9
+              )
             ],
           )
         )

@@ -38,7 +38,7 @@ class TextStyles {
         fontSize= 20;
       }
       case 8: {
-        fontSize= 12.5;
+        fontSize= 13.8;
         fontWeight= FontWeight.bold;
       }
       case 9: {

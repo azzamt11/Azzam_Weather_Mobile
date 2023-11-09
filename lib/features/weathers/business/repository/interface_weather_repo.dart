@@ -1,10 +1,8 @@
-import 'package:azzam_weather_mobile/features/weathers/business/entities/daily_forecast_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/hourly_forecast_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
-import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/data/repository/weather_repo.dart';
-import 'package:flutter/material.dart';
-
+import '../../../weathers/business/entities/daily_forecast_weather.dart';
+import '../../../weathers/business/entities/hourly_forecast_weather.dart';
+import '../../../weathers/business/entities/interface_weather_data.dart';
+import '../../../weathers/data/models/weather.dart';
+import '../../../weathers/data/repository/weather_repo.dart';
 import '../../business/entities/current_weather.dart';
 
 class InterfaceWeatherRepository {

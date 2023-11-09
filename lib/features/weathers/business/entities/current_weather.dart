@@ -1,5 +1,6 @@
-import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
 import 'package:flutter/material.dart';
+
+import '../../../weathers/data/models/weather.dart';
 
 class CurrentWeather {
   double? temp;

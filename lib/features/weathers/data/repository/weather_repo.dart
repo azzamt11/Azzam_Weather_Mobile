@@ -1,7 +1,9 @@
+import 'package:azzam_weather_mobile/core/constants/geolocation_data.dart';
 import 'package:geolocator/geolocator.dart';
 
+import '../../../weathers/data/repository/helper.dart';
 import '../../../../core/constants/constants.dart';
-import 'geolocation.dart';
+import '../../data/repository/geolocation.dart';
 import '../../data/data_sources/remote/api_client.dart';
 import '../../data/data_sources/local/local_data.dart';
 import '../../data/models/weather.dart';
@@ -12,6 +14,16 @@ class WeatherRepository {
 
     Position? position= await Geolocation().getCurrentPosition();
     Weather data= await ApiClient().getWeatherData(position??Constants().defaultPosition);
+
+    if(Helper().isNumeric(data.resolvedAddress!.split(",")[0])) {
+      String address= "Jakarta";
+      if(position!= null) {
+        address= GeolocationData().getAddress(position);
+      }
+
+      data.setAddress(address);
+    }
+
     return data;
   }
 
@@ -33,4 +45,5 @@ class WeatherRepository {
     return data;
   }
   */
+
 }

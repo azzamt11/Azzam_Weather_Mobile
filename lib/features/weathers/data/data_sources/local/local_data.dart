@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import '../../../data/models/weather.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import '../../../data/models/weather.dart';
 
 class LocalData {
 

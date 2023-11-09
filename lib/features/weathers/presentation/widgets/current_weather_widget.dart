@@ -1,9 +1,11 @@
 import 'dart:math';
 
-import 'package:azzam_weather_mobile/core/constants/constants.dart';
-import 'package:azzam_weather_mobile/features/weathers/business/entities/current_weather.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
+
+import '../../../../core/constants/constants.dart';
+import '../../../weathers/business/entities/current_weather.dart';
+import '../../../weathers/presentation/helpers/functions.dart';
+import '../../../weathers/presentation/widgets/text_widget.dart';
 
 class CurrentWeatherWidget extends StatelessWidget {
   final CurrentWeather data;
@@ -26,7 +28,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextWidget(text: data.temp!.floor().toString(), type: 5),
+                TextWidget(text: Functions().fahrenheitToCelcius(data.temp??0).floor().toString(), type: 5),
                 const TextWidget(text: "°C", type: 6)
               ],
             )

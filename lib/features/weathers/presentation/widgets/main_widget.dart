@@ -1,9 +1,10 @@
-import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/current_weather_widget.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/daily_forecast_widget.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/hourly_forecast_widget.dart';
-import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/weather_features.dart';
 import 'package:flutter/material.dart';
+
+import '../../../weathers/business/entities/interface_weather_data.dart';
+import '../../../weathers/presentation/widgets/current_weather_widget.dart';
+import '../../../weathers/presentation/widgets/daily_forecast_widget.dart';
+import '../../../weathers/presentation/widgets/hourly_forecast_widget.dart';
+import '../../../weathers/presentation/widgets/weather_features.dart';
 
 class MainWidget extends StatefulWidget {
   final ScrollController controller;

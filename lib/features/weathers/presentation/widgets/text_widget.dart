@@ -1,5 +1,6 @@
-import 'package:azzam_weather_mobile/features/weathers/presentation/helpers/text_styles.dart';
 import 'package:flutter/material.dart';
+
+import '../../../weathers/presentation/helpers/text_styles.dart';
 
 class TextWidget extends StatelessWidget {
   final String text;
