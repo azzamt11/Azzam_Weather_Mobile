@@ -76,7 +76,7 @@ class DailyData {
   double? moonphase;
   int? sunriseEpoch;
   String? sunset;
-  int? subsetEpoch;
+  int? sunsetEpoch;
   String? description;
 
   List<HourlyData> hours= [];
@@ -98,6 +98,8 @@ class DailyData {
     conditions= data["conditions"];
     precipType= data["preciptype"];
     moonphase= data["moonphase"];
+    sunrise= data["sunrise"];
+    sunset= data["sunset"];
     description= data["description"];
 
     for(int i=0; i< data["hours"].length; i++) {

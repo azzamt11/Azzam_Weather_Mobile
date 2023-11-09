@@ -1,4 +1,6 @@
 import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/header_widget.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/main_widget.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/panorama.dart';
 import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
@@ -52,9 +54,9 @@ class _HomePageState extends State<HomePage> {
         color: Colors.white,
         child: Stack(
           children: [
-            const Panorama(),
-            headerWidget(size),
-            mainWidget(size),
+            Panorama(isDay: DateTime.now().hour< 18, data: widget.data),
+            HeaderWidget(address: widget.data.current.address??"Jakarta, Indonesia"),
+            MainWidget(controller: controller, data: widget.data),
             appBar(size)
           ],
         )
@@ -72,6 +74,7 @@ class _HomePageState extends State<HomePage> {
           child: Container(
             height: 50,
             width: size.width,
+            padding: const EdgeInsets.only(top: 10, left: 20),
             decoration: const BoxDecoration(
               color: Colors.white,
               border: Border(
@@ -85,8 +88,8 @@ class _HomePageState extends State<HomePage> {
                 SizedBox(
                   width: 140,
                   child: TextWidget(
-                    text: widget.data.current.address??"Bali", 
-                    type: DateTime.now().hour> 18? 0 : 2
+                    text: widget.data.current.address??"Jakarta", 
+                    type: 0
                   ),
                 )
               ]
@@ -94,69 +97,6 @@ class _HomePageState extends State<HomePage> {
           )
         );
       },
-    );
-  }
-
-  Widget headerWidget(Size size) {
-    return Positioned(
-      top: 0,
-      child: Container(
-        height: 70,
-        width: size.width,
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 140,
-              child: TextWidget(
-                text: widget.data.current.address??"Bali", 
-                type: DateTime.now().hour> 18? 0 : 2
-              ),
-            )
-          ]
-        )
-      )
-    );
-  }
-
-  Widget mainWidget(Size size) {
-    return Positioned(
-      top: 0,
-      child: SizedBox(
-        height: size.height,
-        width: size.width,
-        child: SingleChildScrollView(
-          controller: controller,
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 150,
-              ),
-              Container(
-                height: 1000,
-                width: size.width,
-                decoration: const BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Color.fromRGBO(255, 255, 255, 0),
-                      Color.fromRGBO(255, 255, 255, 0.7), 
-                      Colors.white,
-                      Colors.white,
-                      Colors.white,
-                      Colors.white,
-                      Colors.white,
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                ),
-              ),
-            ],
-          )
-        )
-      )
     );
   }
 

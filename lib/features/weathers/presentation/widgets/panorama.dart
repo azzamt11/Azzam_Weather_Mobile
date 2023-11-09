@@ -1,7 +1,11 @@
+import 'package:azzam_weather_mobile/features/weathers/business/entities/interface_weather_data.dart';
+import 'package:azzam_weather_mobile/features/weathers/presentation/widgets/text_widget.dart';
 import 'package:flutter/material.dart';
 
 class Panorama extends StatefulWidget {
-  const Panorama({super.key});
+  final bool isDay;
+  final InterfaceWeatherData data;
+  const Panorama({super.key, required this.isDay, required this.data});
 
   @override
   State<Panorama> createState() => _PanoramaState();
@@ -9,11 +13,13 @@ class Panorama extends StatefulWidget {
 
 class _PanoramaState extends State<Panorama> {
   double targetTop= 400;
+  double targetOpacity= 0;
 
   @override
   void initState() {
     setState(() {
       targetTop= 100;
+      targetOpacity= 1;
     });
     super.initState();
   }
@@ -40,10 +46,10 @@ class _PanoramaState extends State<Panorama> {
             builder:(BuildContext context, double top, Widget? child) {
               return Positioned(
                   top: top,
-                  left: size.width/2+ 50,
+                  left: size.width/2+ 30,
                   child: Container(
-                    height: 100,
-                    width: 100,
+                    height: 80,
+                    width: 80,
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         colors: getColors(),
@@ -58,13 +64,38 @@ class _PanoramaState extends State<Panorama> {
                 );
             },
           ),
+          Positioned(
+            top: 100,
+            left: size.width/2- 110,
+            child: SizedBox(
+              height: 80,
+              width: 120,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: getText()
+              )
+            )
+          )
         ],
       )
     );
   }
 
+  List<Widget> getText() {
+    if(widget.isDay) {
+      return [
+        TextWidget(text: "Sunrise: ${widget.data.current.sunrise}", type: 4),
+        const SizedBox(height: 10),
+        TextWidget(text: "Sunset: ${widget.data.current.sunset}", type: 4)
+      ];
+    } else {
+      return [TextWidget(text: "Moonphase: ${widget.data.current.moonphase}", type: 3),];
+    }
+  }
+
   List<Color> getColors() {
-    if(DateTime.now().hour> 18) {
+    if(widget.isDay) {
       return [Color.fromRGBO(237, 241, 182, 1), Colors.white];
     } else {
       return [Color.fromARGB(255, 188, 187, 187), Color.fromARGB(255, 122, 122, 122)];
@@ -72,7 +103,7 @@ class _PanoramaState extends State<Panorama> {
   }
 
   List<Color> getSkyColors() {
-    if(DateTime.now().hour> 18) {
+    if(widget.isDay) {
       return [Color.fromRGBO(106, 144, 226, 1), Color.fromRGBO(143, 171, 230, 1), Colors.white];
     } else {
       return [Color.fromRGBO(6, 6, 7, 1), Color.fromRGBO(27, 8, 100, 1), Color.fromRGBO(90, 63, 200, 1)];

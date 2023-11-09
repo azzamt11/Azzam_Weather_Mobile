@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:azzam_weather_mobile/features/weathers/data/models/weather.dart';
 
 class Mock {

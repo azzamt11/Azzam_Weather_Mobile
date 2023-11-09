@@ -12,8 +12,8 @@ class CurrentWeather {
   double? pressure;
   String? address;
   double? moonphase;
-  double? sunrise;
-  double? sunset;
+  String? sunrise;
+  String? sunset;
 
   bool isUpdated= false;
 

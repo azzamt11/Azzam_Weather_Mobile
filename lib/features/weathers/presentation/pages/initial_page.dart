@@ -21,7 +21,6 @@ class _InitialPageState extends State<InitialPage> {
 
   @override
   void initState() {
-    // TODO: implement initState
     initiate();
     super.initState();
   }

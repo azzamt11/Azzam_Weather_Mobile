@@ -18,6 +18,16 @@ class TextStyles {
         color= Colors.white;
         fontSize= 14;
       }
+      case 3: {
+        color= const Color.fromRGBO(255, 255, 255, 0.3);
+        fontSize= 11;
+        fontWeight= FontWeight.normal;
+      }
+      case 4: {
+        color= const Color.fromRGBO(255, 255, 255, 0.6);
+        fontSize= 11;
+        fontWeight= FontWeight.normal;
+      }
     }
     return GoogleFonts.poppins(
       textStyle: TextStyle(
