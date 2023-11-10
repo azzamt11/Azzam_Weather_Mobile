@@ -1,3 +1,6 @@
+import 'dart:math';
+
+import 'package:flutter/foundation.dart';
 import 'package:geolocator/geolocator.dart';
 
 class GeolocationData {
@@ -4117,14 +4120,20 @@ class GeolocationData {
     }
   ];
 
-  String getAddress(Position pos) {
+  String getAddress(double lat, double long) {
     int nearest= 0;
-    double nearestDist= 0;
+    double nearestDist= double.infinity;
     for(int i=0; i< geoLoc.length; i++) {
-      double dist= (geoLoc[i]["latitude"]- pos.latitude).abs()+ (geoLoc[i]["longitude"]- pos.longitude).abs();
+      if(i< 50) {
+        debugPrint("i= $i, address= ${geoLoc[i]["name"]}: (geoLoc[i][latitude]= ${geoLoc[i]["latitude"]}+ lat= $lat)^2 + (geoLoc[i][longitude]= ${geoLoc[i]["longitude"]}- long= $long)^2 =${pow(geoLoc[i]["latitude"]+ lat, 2).toDouble()}+ ${pow(geoLoc[i]["longitude"]- long, 2)}= ${pow(geoLoc[i]["latitude"]+ lat, 2).toDouble()+ pow(geoLoc[i]["longitude"]- long, 2)}");
+      }
+      double dist= (pow(geoLoc[i]["latitude"]+ lat, 2).toDouble()+ pow(geoLoc[i]["longitude"]- long, 2).toDouble());
       if(dist< nearestDist) {
+        debugPrint("STEP B9: new record is occured");
         nearest= i;
         nearestDist= dist;
+      } else {
+        debugPrint("$dist< $nearestDist= ${dist< nearestDist}"); 
       }
     }
     return titleCase(geoLoc[nearest]["name"]).split("KABUPATEN").last;

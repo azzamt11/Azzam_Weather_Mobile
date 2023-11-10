@@ -35,11 +35,11 @@ class _HomePageState extends State<HomePage> {
       // always prints "scrolling = true"
       if(controller.position.pixels> 290 && barPosition== 0) {
         setState(() {
-          barPosition= 50+ widget.topPadding;
+          barPosition= 60+ widget.topPadding;
         });
       }
 
-      if(controller.position.pixels< 290 && barPosition> 50) {
+      if(controller.position.pixels< 290 && barPosition> 60) {
         setState(() {
           barPosition= 0;
         });
@@ -86,9 +86,9 @@ class _HomePageState extends State<HomePage> {
       duration: const Duration(milliseconds: 500),
       builder:(BuildContext context, double top, Widget? child) {
         return Positioned(
-          top: top- 50- topPadding,
+          top: top- 60- topPadding,
           child: Container(
-            height: 50+ topPadding,
+            height: 60+ topPadding,
             width: size.width,
             padding: Constants().getDefaultPadding(size),
             decoration: const BoxDecoration(
@@ -99,16 +99,20 @@ class _HomePageState extends State<HomePage> {
             ),
             child:  Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(
+                Container(
                   width: 140,
+                  margin: EdgeInsets.only(top: 5+ topPadding),
                   child: TextWidget(
                     text: widget.data.current.address??"Jakarta", 
                     type: 0
                   ),
                 ),
-                const AboutButton()
+                Padding(
+                  padding: EdgeInsets.only(top: 10+ topPadding),
+                  child: const AboutButton()
+                )
               ]
             )
           )

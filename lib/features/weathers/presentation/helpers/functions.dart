@@ -7,7 +7,7 @@ class Functions {
   } 
 
   double fahrenheitToCelcius(double value) {
-    double result= ((value- 32)*5/9);
+    double result= double.parse(((value- 32)*5/9).toStringAsFixed(1));
     return result;
   }
 

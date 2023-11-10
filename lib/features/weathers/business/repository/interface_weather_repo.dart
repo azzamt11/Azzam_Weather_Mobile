@@ -1,3 +1,5 @@
+import 'package:flutter/foundation.dart';
+
 import '../../../weathers/business/entities/daily_forecast_weather.dart';
 import '../../../weathers/business/entities/hourly_forecast_weather.dart';
 import '../../../weathers/business/entities/interface_weather_data.dart';
@@ -55,7 +57,7 @@ class InterfaceWeatherRepository {
 
   //just in case my application error, for at least there is something to show, we generate the mock data for weather
 
-  /*
+  /*  
   Future<InterfaceWeatherData> getMockWeatherData() async{
     Weather data= await WeatherRepository().getMockWeather();
     CurrentWeather currentData= CurrentWeather();

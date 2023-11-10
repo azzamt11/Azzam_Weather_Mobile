@@ -169,7 +169,7 @@ class _InitialPageState extends State<InitialPage> {
     //..............................................
   
     animateLogo("out");
-    Future.delayed(const Duration(seconds: 1));
+    Future.delayed(const Duration(seconds: 2));
 
     // ignore: use_build_context_synchronously
     double topPadding= MediaQuery.of(context).padding.top;

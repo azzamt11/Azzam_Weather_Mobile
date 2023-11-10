@@ -15,13 +15,18 @@ class WeatherRepository {
     Position? position= await Geolocation().getCurrentPosition();
     Weather data= await ApiClient().getWeatherData(position??Constants().defaultPosition);
 
-    if(Helper().isNumeric(data.resolvedAddress!.split(",")[0])) {
-      String address= "Jakarta";
-      if(position!= null) {
-        address= GeolocationData().getAddress(position);
-      }
+    try{
+      List<String> resolved= data.resolvedAddress!.split(",");
+      if(Helper().isNumeric(resolved[0])) {
+        String address= "Jakarta";
+        if(position!= null) {
+          address= GeolocationData().getAddress(double.parse(resolved[0]), double.parse(resolved[1]));
+        }
 
-      data.setAddress(address);
+        data.setAddress(address);
+      }
+    } catch(e) {
+      data.setAddress("Lat.${position!.latitude}, Long.${position.longitude}");
     }
 
     return data;
@@ -41,6 +46,15 @@ class WeatherRepository {
   Future<Weather> getMockWeather() async{
 
     Weather data= Mock().getData();
+    List<String> resolved= data.resolvedAddress!.split(",");
+    if(Helper().isNumeric(resolved[0])) {
+      String address= "Jakarta";
+      address= GeolocationData().getAddress(double.parse(resolved[0]), double.parse(resolved[1]));
+
+      debugPrint("STEP B8: address from getAddress= $address");
+
+      data.setAddress(address);
+    }
     debugPrint("STEP B4: data.resolvedAddress= ${data.resolvedAddress}");
     return data;
   }

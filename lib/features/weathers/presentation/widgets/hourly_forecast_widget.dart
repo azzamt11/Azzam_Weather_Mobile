@@ -120,7 +120,7 @@ class HourlyForecastWidget extends StatelessWidget {
       return "images/rainy.png";
     } else if(condition.toLowerCase().contains("cloud")) {
       return "images/cloudy.png";
-    } else if(condition.toLowerCase().contains("ovarcast")) {
+    } else if(condition.toLowerCase().contains("overcast")) {
       return "images/overcast.png";
     } else if(condition.toLowerCase().contains("storm")) {
       return "images/thunderstorm.png";

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../weathers/business/entities/current_weather.dart';
 import '../../../weathers/presentation/widgets/text_widget.dart';
+import '../../../weathers/presentation/helpers/functions.dart';
 
 
 class WeatherFeatures extends StatefulWidget {
@@ -20,7 +21,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   @override
   void initState() {
     features= [
-      ["Feelslike", "${widget.data.feelslike}°C", "images/feelslike.png"],
+      ["Feelslike", "${Functions().fahrenheitToCelcius(widget.data.feelslike??0)}°C", "images/feelslike.png"],
       ["Visibility", "${widget.data.visibility} km", "images/visibility.png"],
       ["UV Index", widget.data.uvIndex.toString(), "images/uvindex.png"],
       ["Humidity", "${widget.data.humidity} %", "images/humidity.png"],
