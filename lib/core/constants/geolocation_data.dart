@@ -4124,10 +4124,7 @@ class GeolocationData {
     int nearest= 0;
     double nearestDist= double.infinity;
     for(int i=0; i< geoLoc.length; i++) {
-      if(i< 50) {
-        debugPrint("i= $i, address= ${geoLoc[i]["name"]}: (geoLoc[i][latitude]= ${geoLoc[i]["latitude"]}+ lat= $lat)^2 + (geoLoc[i][longitude]= ${geoLoc[i]["longitude"]}- long= $long)^2 =${pow(geoLoc[i]["latitude"]+ lat, 2).toDouble()}+ ${pow(geoLoc[i]["longitude"]- long, 2)}= ${pow(geoLoc[i]["latitude"]+ lat, 2).toDouble()+ pow(geoLoc[i]["longitude"]- long, 2)}");
-      }
-      double dist= (pow(geoLoc[i]["latitude"]+ lat, 2).toDouble()+ pow(geoLoc[i]["longitude"]- long, 2).toDouble());
+      double dist= (pow(geoLoc[i]["latitude"]- lat, 2).toDouble()+ pow(geoLoc[i]["longitude"]- long, 2).toDouble());
       if(dist< nearestDist) {
         debugPrint("STEP B9: new record is occured");
         nearest= i;
