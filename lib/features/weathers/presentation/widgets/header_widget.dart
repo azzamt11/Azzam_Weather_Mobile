@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
@@ -15,7 +17,7 @@ class HeaderWidget extends StatelessWidget {
       top: 0,
       child: Container(
         height: 60+ topPadding,
-        width: size.width,
+        width: min(size.width, size.height*0.56),
         padding: Constants().getDefaultPadding(size),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

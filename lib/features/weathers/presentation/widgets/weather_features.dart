@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 
@@ -36,7 +38,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 375,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       margin: Constants().getDefaultPadding(size),
       padding: const EdgeInsets.only(top: 30),
       child: Column(
@@ -52,7 +54,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget header(var size) {
     return SizedBox(
       height: 20,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: const Align(
         alignment: Alignment.topCenter,
         child: TextWidget(text: "Features", type: 8),
@@ -63,7 +65,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget featureGrid(var size) {
     return SizedBox(
       height: 250,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: Column(
         children: [
           featureRow(size, 0),
@@ -76,7 +78,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget featureRow(var size, int index) {
     return SizedBox(
       height: 125,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: getFeatures(index),
@@ -122,7 +124,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget link(var size) {
     return SizedBox(
       height: 40,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Material(

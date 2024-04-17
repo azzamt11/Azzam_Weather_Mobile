@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../weathers/business/entities/interface_weather_data.dart';
@@ -23,7 +25,7 @@ class _MainWidgetState extends State<MainWidget> {
       top: 0,
       child: SizedBox(
         height: size.height,
-        width: size.width,
+        width: min(size.width, size.height*0.56),
         child: SingleChildScrollView(
           controller: widget.controller,
           child: Column(
@@ -32,7 +34,7 @@ class _MainWidgetState extends State<MainWidget> {
                 height: 150,
               ),
               Container(
-                width: size.width,
+                width: min(size.width, size.height*0.56),
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

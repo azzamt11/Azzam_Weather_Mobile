@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
@@ -16,7 +18,7 @@ class DailyForecastWidget extends StatelessWidget {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 195+ 37,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       margin: Constants().getDefaultPadding(size),
       padding: const EdgeInsets.only(top: 30),
       child: Column(
@@ -31,7 +33,7 @@ class DailyForecastWidget extends StatelessWidget {
   Widget header(var size) {
     return SizedBox(
       height: 37,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -46,7 +48,7 @@ class DailyForecastWidget extends StatelessWidget {
   Widget slider(var size) {
     return SizedBox(
       height: 165,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

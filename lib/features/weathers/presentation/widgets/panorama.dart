@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../weathers/business/entities/interface_weather_data.dart';
@@ -30,7 +32,7 @@ class _PanoramaState extends State<Panorama> {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 500,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: getSkyColors(),
@@ -47,7 +49,7 @@ class _PanoramaState extends State<Panorama> {
             builder:(BuildContext context, double top, Widget? child) {
               return Positioned(
                   top: top,
-                  left: size.width/2+ 30,
+                  left: min(size.width, size.height*0.56)/2+ 30,
                   child: Container(
                     height: 80,
                     width: 80,
@@ -67,7 +69,7 @@ class _PanoramaState extends State<Panorama> {
           ),
           Positioned(
             top: 100,
-            left: size.width/2- 110,
+            left: min(size.width, size.height*0.56)/2- 110,
             child: SizedBox(
               height: 80,
               width: 120,

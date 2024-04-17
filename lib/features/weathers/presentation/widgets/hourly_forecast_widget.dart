@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -17,7 +19,7 @@ class HourlyForecastWidget extends StatelessWidget {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 150,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       margin: Constants().getDefaultPadding(size),
       child: Column(
         children: [
@@ -32,7 +34,7 @@ class HourlyForecastWidget extends StatelessWidget {
     DateTime now= DateTime.now();
     return SizedBox(
       height: 35,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -51,7 +53,7 @@ class HourlyForecastWidget extends StatelessWidget {
   Widget slider(var size) {
     return SizedBox(
       height: 115,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 
@@ -65,7 +66,7 @@ class _HomePageState extends State<HomePage> {
         resizeToAvoidBottomInset: false,
         body: Container(
           height: size.height,
-          width: size.width,
+          width: min(size.width, size.height*0.56),
           color: Colors.white,
           child: Stack(
             children: [
@@ -89,7 +90,7 @@ class _HomePageState extends State<HomePage> {
           top: top- 60- topPadding,
           child: Container(
             height: 60+ topPadding,
-            width: size.width,
+            width: min(size.width, size.height*0.56),
             padding: Constants().getDefaultPadding(size),
             decoration: const BoxDecoration(
               color: Colors.white,

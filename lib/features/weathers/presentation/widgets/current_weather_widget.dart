@@ -16,7 +16,7 @@ class CurrentWeatherWidget extends StatelessWidget {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 105,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       margin: const EdgeInsets.only(top: 130),
       padding: Constants().getDefaultPadding(size),
       child: Row(
@@ -34,7 +34,7 @@ class CurrentWeatherWidget extends StatelessWidget {
             )
           ),
           Container(
-            width: min(size.width*(0.42), 250)- 5,
+            width: min(min(size.width, size.height*0.56)*(0.42), 250)- 5,
             padding: const EdgeInsets.only(top: 15),
             child: Align(
               alignment: Alignment.topRight,

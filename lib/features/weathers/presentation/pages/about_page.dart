@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constants.dart';
@@ -17,7 +19,7 @@ class _AboutPageState extends State<AboutPage> {
     return Scaffold(
       body: Container(
         height: size.height,
-        width: size.width,
+        width: min(size.width, size.height*0.56),
         color: Colors.white,
         child: SingleChildScrollView(
           child: Column(
@@ -30,7 +32,7 @@ class _AboutPageState extends State<AboutPage> {
               const TextWidget(text: "Framework: Flutter", type: 0),
               const SizedBox(height: 20),
               Container(
-                width: size.width,
+                width: min(size.width, size.height*0.56),
                 margin: Constants().getDefaultPadding(size),
                 child: const TextWidget(
                   text: "Features of applications: \n 1. Current Weather (with offline mode taking data from the previous forecast), \n 2. Daily and Hourly forecast weather, \n 3. The sunrise and sunset display (at day) and moonphase display (at night), and \n 4. Geolocation feature ensures that the weather forecasting is precisely at your location.", 
@@ -39,7 +41,7 @@ class _AboutPageState extends State<AboutPage> {
               ),
               const SizedBox(height: 20),
               Container(
-                width: size.width,
+                width: min(size.width, size.height*0.56),
                 margin: Constants().getDefaultPadding(size),
                 child: const TextWidget(
                   text: "I am gonna implement refresh feature in the next version, but currently, for the seek of submitting this project as soon as possible, you can refresh the app by exiting from it first. Thank you. 🙏", 
@@ -58,7 +60,7 @@ class _AboutPageState extends State<AboutPage> {
   Widget backButton(var size) {
     return SizedBox(
       height: 40,
-      width: size.width,
+      width: min(size.width, size.height*0.56),
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Material(
