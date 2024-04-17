@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -19,9 +21,26 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: InitialPage(),
+    var size= MediaQuery.of(context).size;
+    double defaultWidth= min(size.width, size.height*0.56);
+    return getFrame(size, defaultWidth);
+  }
+
+  Widget getFrame(var size, double defaultWidth) {
+    return Container(
+      height: size.height,
+      width: size.width,
+      color: Colors.black87,
+      child: Center(
+        child: SizedBox(
+          height: size.height,
+          width: defaultWidth,
+          child: const MaterialApp(
+            debugShowCheckedModeBanner: false,
+            home: InitialPage(),
+          )
+        )
+      )
     );
   }
 }
