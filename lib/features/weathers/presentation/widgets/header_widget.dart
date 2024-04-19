@@ -17,7 +17,7 @@ class HeaderWidget extends StatelessWidget {
       top: 0,
       child: Container(
         height: 60+ topPadding,
-        width: min(size.width, size.height*0.56),
+        width: size.width,
         padding: Constants().getDefaultPadding(size),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,

@@ -25,7 +25,7 @@ class _MainWidgetState extends State<MainWidget> {
       top: 0,
       child: SizedBox(
         height: size.height,
-        width: min(size.width, size.height*0.56),
+        width: size.width,
         child: SingleChildScrollView(
           controller: widget.controller,
           child: Column(
@@ -34,7 +34,7 @@ class _MainWidgetState extends State<MainWidget> {
                 height: 150,
               ),
               Container(
-                width: min(size.width, size.height*0.56),
+                width: size.width,
                 decoration: const BoxDecoration(
                   gradient: LinearGradient(
                     colors: [

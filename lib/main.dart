@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var size= MediaQuery.of(context).size;
-    double defaultWidth= min(size.width, size.height*0.56);
+    double defaultWidth= size.width;
     return getFrame(size, defaultWidth);
   }
 

@@ -38,7 +38,7 @@ class _InitialPageState extends State<InitialPage> {
   Widget getBody(var size) {
     return Container(
       height: size.height,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       decoration: const BoxDecoration(
         gradient: LinearGradient(
           colors: [Color.fromRGBO(31, 98, 239, 1), Color.fromRGBO(25, 212, 253, 1)],
@@ -60,7 +60,7 @@ class _InitialPageState extends State<InitialPage> {
   }
 
   Widget logoWidget(var size) {
-    double defaultSize= min(min(size.width, size.height*0.56), size.height);
+    double defaultSize= min(size.width, size.height);
     return TweenAnimationBuilder<double>(
       tween: Tween<double>(begin: 0, end: targetRelativeSize),
       duration: Duration(milliseconds: defaultDuration),

@@ -16,11 +16,11 @@ class Constants {
   Color mainColor= const Color.fromRGBO(0, 140, 252, 1);
 
   EdgeInsets getDefaultPadding(Size size) {
-    return EdgeInsets.symmetric(horizontal: max(min(size.width, size.height*0.56)*0.06, min(size.width, size.height*0.56)/2- 250));
+    return EdgeInsets.symmetric(horizontal: max(size.width*0.06, size.width/2- 250));
   }
 
   double getDefaultWidth(Size size) {
-    return min(min(size.width, size.height*0.56)*0.88, 250);
+    return min(size.width*0.88, 250);
   }
 
   List<String> months= [

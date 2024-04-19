@@ -66,7 +66,7 @@ class _HomePageState extends State<HomePage> {
         resizeToAvoidBottomInset: false,
         body: Container(
           height: size.height,
-          width: min(size.width, size.height*0.56),
+          width: size.width,
           color: Colors.white,
           child: Stack(
             children: [
@@ -90,7 +90,7 @@ class _HomePageState extends State<HomePage> {
           top: top- 60- topPadding,
           child: Container(
             height: 60+ topPadding,
-            width: min(size.width, size.height*0.56),
+            width: size.width,
             padding: Constants().getDefaultPadding(size),
             decoration: const BoxDecoration(
               color: Colors.white,

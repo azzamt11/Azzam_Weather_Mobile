@@ -32,7 +32,7 @@ class _PanoramaState extends State<Panorama> {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 500,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       decoration: BoxDecoration(
         gradient: LinearGradient(
           colors: getSkyColors(),
@@ -49,7 +49,7 @@ class _PanoramaState extends State<Panorama> {
             builder:(BuildContext context, double top, Widget? child) {
               return Positioned(
                   top: top,
-                  left: min(size.width, size.height*0.56)/2+ 30,
+                  left: size.width/2+ 30,
                   child: Container(
                     height: 80,
                     width: 80,
@@ -69,7 +69,7 @@ class _PanoramaState extends State<Panorama> {
           ),
           Positioned(
             top: 100,
-            left: min(size.width, size.height*0.56)/2- 110,
+            left: size.width/2- 110,
             child: SizedBox(
               height: 80,
               width: 120,

@@ -18,7 +18,7 @@ class DailyForecastWidget extends StatelessWidget {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 195+ 37,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       margin: Constants().getDefaultPadding(size),
       padding: const EdgeInsets.only(top: 30),
       child: Column(
@@ -33,7 +33,7 @@ class DailyForecastWidget extends StatelessWidget {
   Widget header(var size) {
     return SizedBox(
       height: 37,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -48,7 +48,7 @@ class DailyForecastWidget extends StatelessWidget {
   Widget slider(var size) {
     return SizedBox(
       height: 165,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),

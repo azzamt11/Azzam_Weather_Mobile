@@ -38,7 +38,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 375,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       margin: Constants().getDefaultPadding(size),
       padding: const EdgeInsets.only(top: 30),
       child: Column(
@@ -54,7 +54,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget header(var size) {
     return SizedBox(
       height: 20,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: const Align(
         alignment: Alignment.topCenter,
         child: TextWidget(text: "Features", type: 8),
@@ -65,7 +65,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget featureGrid(var size) {
     return SizedBox(
       height: 250,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: Column(
         children: [
           featureRow(size, 0),
@@ -78,7 +78,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget featureRow(var size, int index) {
     return SizedBox(
       height: 125,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: getFeatures(index),
@@ -124,7 +124,7 @@ class _WeatherFeaturesState extends State<WeatherFeatures> {
   Widget link(var size) {
     return SizedBox(
       height: 40,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: Align(
         alignment: Alignment.bottomCenter,
         child: Material(

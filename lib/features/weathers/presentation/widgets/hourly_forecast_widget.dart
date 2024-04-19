@@ -19,7 +19,7 @@ class HourlyForecastWidget extends StatelessWidget {
     var size= MediaQuery.of(context).size;
     return Container(
       height: 150,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       margin: Constants().getDefaultPadding(size),
       child: Column(
         children: [
@@ -34,7 +34,7 @@ class HourlyForecastWidget extends StatelessWidget {
     DateTime now= DateTime.now();
     return SizedBox(
       height: 35,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -53,7 +53,7 @@ class HourlyForecastWidget extends StatelessWidget {
   Widget slider(var size) {
     return SizedBox(
       height: 115,
-      width: min(size.width, size.height*0.56),
+      width: size.width,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         physics: const BouncingScrollPhysics(),
